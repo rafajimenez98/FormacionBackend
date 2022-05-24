@@ -1,11 +1,24 @@
 package com.inyeccion.dependencias;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
-public class Persona implements PersonaService{
+@ToString
+@Getter
+@Setter
+public class Persona {
         String nombre;
         String poblacion;
-        int edad;
+        Integer edad;
+
+        public Persona() {
+        }
+
+        public Persona(String nombre, String poblacion, Integer edad) {
+                this.nombre = nombre;
+                this.poblacion = poblacion;
+                this.edad = edad;
+        }
 }
 
