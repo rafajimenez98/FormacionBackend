@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cab7be88-29e6-4701-b030-67b8c2945e50" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Persona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/FormacionBackend.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dependencias/src/main/java/com/inyeccion/dependencias/Controlador1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dependencias/src/main/java/com/inyeccion/dependencias/Controlador2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dependencias/src/main/java/com/inyeccion/dependencias/Persona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dependencias/src/main/java/com/inyeccion/dependencias/PersonaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +51,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Formacionback/demo",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/FormacionBackend/demo",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
@@ -83,5 +91,16 @@
       <updated>1652948389550</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
