@@ -5,15 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cab7be88-29e6-4701-b030-67b8c2945e50" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../rs1/src/main/java/com/rs1/dependencias/principal/C1AñadirPersona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rs1/src/main/java/com/rs1/dependencias/principal/C2ModificarPersona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rs1/src/main/java/com/rs1/dependencias/principal/C3Borrar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rs1/src/main/java/com/rs1/dependencias/principal/C4Consultar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rs1/src/main/java/com/rs1/dependencias/principal/Persona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rs1/src/main/java/com/rs1/dependencias/principal/PersonaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rs1/src/main/java/com/rs1/dependencias/principal/PersonaServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dependencias/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dependencias/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dependencias/src/main/java/com/inyeccion/dependencias/Ciudad.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dependencias/src/main/java/com/inyeccion/dependencias/principal/Ciudad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dependencias/src/main/java/com/inyeccion/dependencias/Controlador1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dependencias/src/main/java/com/inyeccion/dependencias/principal/Controlador1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dependencias/src/main/java/com/inyeccion/dependencias/Controlador2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dependencias/src/main/java/com/inyeccion/dependencias/principal/Controlador2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dependencias/src/main/java/com/inyeccion/dependencias/DependenciasApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dependencias/src/main/java/com/inyeccion/dependencias/DependenciasApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dependencias/src/main/java/com/inyeccion/dependencias/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dependencias/src/main/java/com/inyeccion/dependencias/principal/Persona.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dependencias/src/main/java/com/inyeccion/dependencias/PersonaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dependencias/src/main/java/com/inyeccion/dependencias/principal/PersonaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dependencias/src/main/java/com/inyeccion/dependencias/PersonaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dependencias/src/main/java/com/inyeccion/dependencias/principal/PersonaServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
