@@ -1,7 +1,5 @@
-package com.inyeccion.dependencias;
+package com.inyeccion.dependencias.principal;
 
-
-import com.inyeccion.dependencias.Persona;
 
 import java.util.List;
 

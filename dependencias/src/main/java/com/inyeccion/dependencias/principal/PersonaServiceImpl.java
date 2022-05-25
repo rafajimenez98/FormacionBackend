@@ -1,4 +1,4 @@
-package com.inyeccion.dependencias;
+package com.inyeccion.dependencias.principal;
 
 import lombok.Getter;
 import org.springframework.stereotype.Service;

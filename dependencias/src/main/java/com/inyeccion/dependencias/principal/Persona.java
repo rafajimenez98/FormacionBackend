@@ -1,12 +1,8 @@
-package com.inyeccion.dependencias;
+package com.inyeccion.dependencias.principal;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
-@ToString
-@Getter
-@Setter
+@Data
 public class Persona {
         String nombre;
         String poblacion;
