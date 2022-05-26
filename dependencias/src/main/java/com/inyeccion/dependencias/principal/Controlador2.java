@@ -36,12 +36,14 @@ public class Controlador2 {
     @GetMapping("getPersonas")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<List<Persona>> verPersonas() {
-        return ResponseEntity.status(HttpStatus.OK).body(personaService.getPersonas());
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(personaService.getPersonas());
     }
 
     @GetMapping("getCiudades")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<List<Ciudad>> verCiudades() {
-        return ResponseEntity.status(HttpStatus.OK).body(personaService.getCiudades());
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(personaService.getCiudades());
     }
 }

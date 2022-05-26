@@ -14,10 +14,18 @@ public class PersonaServiceImpl implements PersonaService {
 
     List<Persona> personas = new ArrayList<>();
 
+    public PersonaServiceImpl() {
+        Persona p1 = new Persona(1,"bean1",  21,"Jaen");
+        Persona p2 = new Persona(2,"bean2",  21,"Jaen");
+        Persona p3 = new Persona(3,"bean3",  21,"Jaen");
 
+        personas.add(p1);
+        personas.add(p2);
+        personas.add(p3);
+    }
     public Persona crearPersona(
-            String nombre, Integer edad, String poblacion) {
-        Persona p = new Persona(nombre, edad, poblacion);
+            Integer id, String nombre, Integer edad, String poblacion) {
+        Persona p = new Persona(id, nombre, edad, poblacion);
         personas.add(p);
         return p;
     }
