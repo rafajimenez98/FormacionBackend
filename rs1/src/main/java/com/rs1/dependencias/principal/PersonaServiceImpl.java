@@ -16,13 +16,11 @@ public class PersonaServiceImpl implements PersonaService {
 
 
     public Persona crearPersona(
-            String nombre, String poblacion, Integer edad) {
-        Persona p = new Persona(nombre,edad,poblacion);
+            String nombre, Integer edad, String poblacion) {
+        Persona p = new Persona(nombre, edad, poblacion);
         personas.add(p);
         return p;
     }
-
-    public List<Persona> getPersonas() {
-        return null;
-    }
 }
+
+
