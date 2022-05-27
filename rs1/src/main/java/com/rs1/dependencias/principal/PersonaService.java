@@ -7,7 +7,13 @@ import java.util.List;
 
 public interface PersonaService {
 
-    Persona crearPersona(Integer id, String nombre, Integer edad, String poblacion);
+    Persona crearPersona(String nombre, Integer edad, String poblacion);
+
+    Persona borrarPersona(Integer id);
+
+
 
     List<Persona> getPersonas();
+
+    Object modificarPersona(Integer id);
 }

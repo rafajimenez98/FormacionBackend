@@ -9,20 +9,19 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("controlador1")
 @Slf4j
-public class C1AñadirPersona {
+public class C1AniadirPersona {
     @Autowired
     private PersonaService personaService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("persona")
     public ResponseEntity<Persona> crearPersona(
-            @RequestHeader Integer id,
             @RequestHeader String nombre,
             @RequestHeader String poblacion,
             @RequestHeader Integer edad) {
 
-        log.info("ID: "+ id + ", " + "Nombre: " + nombre + ", " + "Edad: " + edad + ", " + "Poblacion: " + poblacion);
+        log.info("Intentando añadir la persona con Nombre: " + nombre + ", " + "Edad: " + edad + ", " + "Poblacion: " + poblacion);
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(personaService.crearPersona(id, nombre, edad, poblacion));
+                .body(personaService.crearPersona(nombre, edad, poblacion));
     }
 }

@@ -7,22 +7,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("controlador1")
+@RequestMapping("controlador2")
 @Slf4j
 public class C2ModificarPersona {
+
     @Autowired
     private PersonaService personaService;
+    @ResponseStatus(HttpStatus.OK)
+    @DeleteMapping("persona/{id}")
+    public ResponseEntity<Object> modificarPersona(@PathVariable Integer id, @RequestBody Persona persona){
 
-    /*@ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("persona")
-    public ResponseEntity<Persona> modificarPersona(
-            Integer id,
-            @RequestHeader String nombre,
-            @RequestHeader String poblacion,
-            @RequestHeader Integer edad) {
+        log.info("Intentando modificar la persona con id: " + id);
+        return ResponseEntity.status(HttpStatus.OK).body(personaService.modificarPersona(id));
+    }
 
-        log.info("Nombre: " + nombre + ", " + "Edad: " + edad + ", " + "Poblacion: " + poblacion);
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .body(personaService.crearPersona(id, nombre, edad, poblacion));
-    }*/
 }
