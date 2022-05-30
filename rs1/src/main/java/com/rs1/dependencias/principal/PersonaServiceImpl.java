@@ -43,15 +43,47 @@ public class PersonaServiceImpl implements PersonaService {
         return persona;
     }
 
-    public Persona modificarPersona(Integer id) {
+    @Override
+    public Persona modificarPersona(String nombre, Integer edad, String poblacion) {
+        return null;
+    }
+
+    public Persona modificarPersona(Integer id, String nombre, Integer edad, String poblacion) {
+        Persona persona = new Persona();
+        persona.setNombre(nombre);
+        persona.setEdad(edad);
+        persona.setPoblacion(poblacion);
+        for (int i = 0; i < personas.size(); i++) {
+            if (personas.get(i).id.equals(id))
+                persona=personas.get(i);
+
+        }
+        return persona;
+    }
+
+    public Persona consultarPersonaID(Integer id){
         Persona persona = new Persona();
         for (int i = 0; i < personas.size(); i++) {
             if (personas.get(i).id.equals(id))
                 persona=personas.get(i);
 
         }
-        personas.set(persona);
         return persona;
+    }
+
+    public Persona consultarPersonaNombre(String nombre){
+        Persona persona = new Persona();
+        for (int i = 0; i < personas.size(); i++) {
+            if (personas.get(i).nombre.equals(nombre))
+                persona=personas.get(i);
+
+        }
+        return persona;
+    }
+
+    @Override
+    public Object modificarPersona(Integer id) {
+        return null;
     }
 
 }

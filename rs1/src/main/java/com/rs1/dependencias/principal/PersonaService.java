@@ -1,9 +1,5 @@
 package com.rs1.dependencias.principal;
 
-import org.springframework.stereotype.Component;
-
-import java.util.List;
-
 
 public interface PersonaService {
 
@@ -11,9 +7,11 @@ public interface PersonaService {
 
     Persona borrarPersona(Integer id);
 
+    Persona modificarPersona(String nombre, Integer edad, String poblacion);
 
+    Object consultarPersonaID(Integer id);
 
-    List<Persona> getPersonas();
+    Object consultarPersonaNombre(String nombre);
 
     Object modificarPersona(Integer id);
 }

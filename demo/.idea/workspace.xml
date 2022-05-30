@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cab7be88-29e6-4701-b030-67b8c2945e50" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rs1/src/main/java/com/rs1/dependencias/principal/Controllers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rs1/src/main/java/com/rs1/dependencias/principal/C1AniadirPersona.java" beforeDir="false" afterPath="$PROJECT_DIR$/../rs1/src/main/java/com/rs1/dependencias/principal/C1CrearPersona.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rs1/src/main/java/com/rs1/dependencias/principal/PersonaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../rs1/src/main/java/com/rs1/dependencias/principal/PersonaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rs1/src/main/java/com/rs1/dependencias/principal/PersonaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../rs1/src/main/java/com/rs1/dependencias/principal/PersonaServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +47,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/FormacionBackend/rs1",
+    "last_opened_file_path": "C:/FormacionBackend/demo",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
