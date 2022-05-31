@@ -7,11 +7,9 @@ public interface PersonaService {
 
     Persona borrarPersona(Integer id);
 
-    Persona modificarPersona(String nombre, Integer edad, String poblacion);
-
     Object consultarPersonaID(Integer id);
 
     Object consultarPersonaNombre(String nombre);
 
-    Object modificarPersona(Integer id);
+    Persona modificarPersona(Integer id, String nombre, Integer edad, String poblacion);
 }

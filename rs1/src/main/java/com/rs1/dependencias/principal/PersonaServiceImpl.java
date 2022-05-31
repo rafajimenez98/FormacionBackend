@@ -43,23 +43,23 @@ public class PersonaServiceImpl implements PersonaService {
         return persona;
     }
 
-    @Override
-    public Persona modificarPersona(String nombre, Integer edad, String poblacion) {
-        return null;
-    }
+
 
     public Persona modificarPersona(Integer id, String nombre, Integer edad, String poblacion) {
         Persona persona = new Persona();
-        persona.setNombre(nombre);
-        persona.setEdad(edad);
-        persona.setPoblacion(poblacion);
-        for (int i = 0; i < personas.size(); i++) {
-            if (personas.get(i).id.equals(id))
-                persona=personas.get(i);
 
+        for (int i = 0; i < personas.size(); i++) {
+            if (personas.get(i).id.equals(id)){
+                personas.get(i).setNombre(nombre);
+                personas.get(i).setEdad(edad);
+                personas.get(i).setPoblacion(poblacion);
+                System.out.println(personas);
+                return personas.get(i);
+            }
         }
-        return persona;
+        return null;
     }
+
 
     public Persona consultarPersonaID(Integer id){
         Persona persona = new Persona();
@@ -80,12 +80,6 @@ public class PersonaServiceImpl implements PersonaService {
         }
         return persona;
     }
-
-    @Override
-    public Object modificarPersona(Integer id) {
-        return null;
-    }
-
 }
 
 

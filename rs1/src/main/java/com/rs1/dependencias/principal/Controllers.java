@@ -26,16 +26,15 @@ public class Controllers {
 
     @ResponseStatus(HttpStatus.OK)
     @PutMapping("persona/{id}")
-    public ResponseEntity<Object> modificarPersona(@PathVariable Integer id, @RequestBody Persona persona) {
+    public ResponseEntity<Persona> modificarPersona(@PathVariable Integer id, @RequestBody Persona persona) {
 
         log.info("Intentando modificar la persona con id: " + id);
-        return (ResponseEntity<Object>) ResponseEntity.status(HttpStatus.OK);
+        return (ResponseEntity<Persona>) ResponseEntity.status(HttpStatus.OK).body(personaService.modificarPersona(id, persona.nombre, persona.edad, persona.poblacion));
     }
 
     @ResponseStatus(HttpStatus.OK)
     @DeleteMapping("persona/{id}")
     public ResponseEntity<Persona> borrarPersona(@PathVariable Integer id) {
-
         log.info("Intentando borrar la persona con id: " + id);
         return ResponseEntity.status(HttpStatus.OK).body(personaService.borrarPersona(id));
     }
