@@ -17,5 +17,4 @@ public class profile2 implements Profiles {
     public String getProfile() {
         return profile;
     }
-
 }
