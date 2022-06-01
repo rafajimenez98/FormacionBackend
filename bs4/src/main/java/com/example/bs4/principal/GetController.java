@@ -16,7 +16,7 @@ public class GetController {
     @Autowired
     Profiles profiles;
 
-    @GetMapping("/values")
+    @GetMapping("/valores")
     public String getValue(@Value("${variable1}") String variable1, @Value("${my.variable2}") int variable2) {
         return "Mi variable 1 es: " + variable1 + " y mi variable 2 es: " + variable2;
     }
@@ -31,12 +31,12 @@ public class GetController {
         return "La url es: " + url + " y la password es: " + password;
     }
 
-    @GetMapping("/parametros2")
+    @GetMapping("/miconfiguracion")
     public String getParametros2(@Value("${valor1}") String valor1, @Value("${valor2}") String valor2) {
         return "Mi valor 1 es: " + valor1 + " y valor 2 es: " + valor2;
     }
 
-    @GetMapping("/profile")
+    @GetMapping("/perfil")
     public String getProfile() {
         return profiles.getProfile();
     }
