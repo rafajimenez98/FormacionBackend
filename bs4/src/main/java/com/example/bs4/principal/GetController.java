@@ -16,8 +16,7 @@ public class GetController {
     @Autowired
     Profiles profiles;
 
-
-    @GetMapping("/valores")
+    @GetMapping("/values")
     public String getValue(@Value("${variable1}") String variable1, @Value("${my.variable2}") int variable2) {
         return "Mi variable 1 es: " + variable1 + " y mi variable 2 es: " + variable2;
     }
@@ -37,8 +36,8 @@ public class GetController {
         return "Mi valor 1 es: " + valor1 + " y valor 2 es: " + valor2;
     }
 
-    @GetMapping("/perfil")
-    public String getPerfil() {
+    @GetMapping("/profile")
+    public String getProfile() {
         return profiles.getProfile();
     }
 
