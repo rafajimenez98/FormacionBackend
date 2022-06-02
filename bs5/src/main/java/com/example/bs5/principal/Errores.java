@@ -9,7 +9,7 @@ public class Errores {
     String error;
 
     public void pruebas(){
-        log.trace("Error trace");
-        log.debug("Eror debug");
+        log.error("Error error");
+        log.warn("Eror warn");
     }
 }
