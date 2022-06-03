@@ -3,6 +3,8 @@ package com.example.BP1.service;
 import com.example.BP1.domain.Persona;
 import com.example.BP1.infraestructure.controller.dto.input.PersonaInputDTO;
 import com.example.BP1.infraestructure.controller.dto.output.PersonaOutputDTO;
+import com.example.BP1.infraestructure.controller.mapper.PersonaMapper;
+import com.example.BP1.infraestructure.repository.PersonaRepositoryJPA;
 import lombok.Getter;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
@@ -10,102 +12,83 @@ import org.springframework.validation.annotation.Validated;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.validation.ConstraintViolationException;
+import java.util.List;
+
+@Slf4j
 @Service
-@Validated
-@Getter
 public class PersonaServiceImpl implements PersonaService {
 
-    private static int count = 1;
-    List<Persona> personas = new ArrayList<>();
+    @Autowired
+    private PersonaRepositoryJPA repository;
 
-    public PersonaServiceImpl() {
-        Persona p1 = new Persona(count++,"bean1",  21,"Jaen");
-        Persona p2 = new Persona(count++,"bean2",  21,"Jaen");
-        Persona p3 = new Persona(count++,"bean3",  21,"Jaen");
-
-        personas.add(p1);
-        personas.add(p2);
-        personas.add(p3);
-    }
-    public Persona crearPersona(
-            String nombre, Integer edad, String poblacion) {
-        Persona p = new Persona(count++, nombre, edad, poblacion);
-        personas.add(p);
-        return p;
-    }
+    @Autowired
+    private PersonaMapper mapper;
 
     @Override
-    public Persona borrarPersona(Integer id) {
-        Persona persona = new Persona();
-        for (int i = 0; i < personas.size(); i++) {
-            if (personas.get(i).id.equals(id))
-                persona=personas.get(i);
-
-        }
-        personas.remove(persona);
-        return persona;
-    }
-
-
-
-    public Persona modificarPersona(Integer id, String nombre, Integer edad, String poblacion) {
-        Persona persona = new Persona();
-
-        for (int i = 0; i < personas.size(); i++) {
-            if (personas.get(i).id.equals(id)){
-                personas.get(i).setNombre(nombre);
-                personas.get(i).setEdad(edad);
-                personas.get(i).setPoblacion(poblacion);
-                System.out.println(personas);
-                return personas.get(i);
-            }
-        }
-        return null;
-    }
-
-
-    public Persona consultarPersonaID(Integer id){
-        Persona persona = new Persona();
-        for (int i = 0; i < personas.size(); i++) {
-            if (personas.get(i).id.equals(id))
-                persona=personas.get(i);
-
-        }
-        return persona;
-    }
-
-    public Persona consultarPersonaNombre(String nombre){
-        Persona persona = new Persona();
-        for (int i = 0; i < personas.size(); i++) {
-            if (personas.get(i).nombre.equals(nombre))
-                persona=personas.get(i);
-
-        }
-        return persona;
-    }
-
-    @Override
-    public PersonaOutputDTO addPersona(PersonaInputDTO personaInputDTO) {
-        return null;
+    public PersonaOutputDTO addPersona(PersonaInputDTO personaInputDTO) throws ConstraintViolationException {
+        if (repository.findByUsername(personaInputDTO.getUsuario()).isPresent())
+            throw new PersonaYaRegistrada("Usuario ya registrado");
+        return mapper.toDTO(repository.save(mapper.toEntity(personaInputDTO)));
     }
 
     @Override
     public Object getPersona(Integer id, String outputType) {
-        return null;
+        Persona persona = repository
+                .findById(id)
+                .orElseThrow(() -> new EntidadNoEncontrada(
+                        ("Persona con id: " + id + ", no encontrado")));
+
+        if (outputType.equals("full")) {
+            log.info("Aqui soi no?=");
+            if (persona.getTipoPersona().equals(Persona.TipoPersona.ESTUDIANTE)) {
+                return estudianteMapper.toDTO2(repository.getEstudiante(persona)
+                        .orElseThrow(() -> new EntidadNoEncontrada("Fallo al asignar estudiante")));
+
+            } else if (persona.getTipoPersona().equals(Persona.TipoPersona.PROFESOR)) {
+                return profesorMapper.toDTO1(repository.getProfesor(persona)
+                        .orElseThrow(() -> new EntidadNoEncontrada("Fallo al asignar profesor")));
+            }
+        }
+
+        return mapper.toDTO(persona);
     }
 
     @Override
     public PersonaOutputDTO getPersonaByUser(String username) {
-        return null;
+        return mapper.toDTO(repository
+                .findByUsername(username)
+                .orElseThrow(() -> new EntidadNoEncontrada(
+                        ("Usuario: " + username + ", no encontrado"))));
     }
 
     @Override
-    public void actPersona(int id, PersonaInputDTO personaInputDTO) {
+    public List<PersonaOutputDTO> getPersonas() {
+        return mapper.toDTOList(repository.findAll());
+    }
 
+    @Override
+    public void actPersona(int id, PersonaInputDTO personaInputDTO) throws ConstraintViolationException {
+        Persona persona =
+                repository.findById(id)
+                        .orElseThrow(() ->
+                                new EntidadNoEncontrada("Persona con id: " + id + ", no encontrada"));
+
+        // Asignacion de nuevos atributos
+        BeanUtils.copyProperties(personaInputDTO, persona);
+        repository.save(persona);
     }
 
     @Override
     public void delPersona(int id) {
-
+        repository.delete((repository
+                .findById(id)
+                .orElseThrow(() -> new EntidadNoEncontrada(
+                        ("Persona con id: " + id + ", no encontrado")))));
     }
 }
