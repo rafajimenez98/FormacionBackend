@@ -7,15 +7,15 @@ import java.util.List;
 
 public interface PersonaService {
 
-    PersonaOutputDTO addPersona(PersonaInputDTO personaInputDTO);
+    PersonaOutputDTO añadirPersona(PersonaInputDTO personaInputDTO);
 
-    Object getPersona(Integer id, String outputType);
+    List<PersonaOutputDTO> mostrarPersonas();
+    Object mostrarPersonaId(Integer id, String outputType);
 
-    List<PersonaOutputDTO> getPersonas();
 
-    PersonaOutputDTO getPersonaByUser(String username);
+    PersonaOutputDTO mostrarPersona(String username);
 
-    void actPersona(int id, PersonaInputDTO personaInputDTO);
+    void modificarPersona(Integer id, PersonaInputDTO personaInputDTO);
 
-    void delPersona(int id);
+    void borrarPersona(Integer id);
 }

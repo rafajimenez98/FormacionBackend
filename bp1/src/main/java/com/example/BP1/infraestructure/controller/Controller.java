@@ -4,7 +4,6 @@ import com.example.BP1.infraestructure.controller.dto.input.PersonaInputDTO;
 import com.example.BP1.infraestructure.controller.dto.output.PersonaOutputDTO;
 import com.example.BP1.service.PersonaService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,57 +20,46 @@ public class Controller {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("persona")
-    public ResponseEntity<PersonaOutputDTO> addPersona(@RequestBody PersonaInputDTO personaInputDTO) {
+    public ResponseEntity<PersonaOutputDTO> crearPersona(@RequestBody PersonaInputDTO personaInputDTO) {
         log.info("Intentando agregar: " + personaInputDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.addPersona(personaInputDTO));
-    }
-
-    @ResponseStatus(HttpStatus.CREATED)
-    @CrossOrigin(origins = " https://codepen.io/de4imo/pen/VwMRENP")
-    @PostMapping("addperson")
-    public ResponseEntity<PersonaOutputDTO> addPerson(
-            @RequestBody PersonaInputDTO personaInputDTO) {
-        log.info("a ver..." + personaInputDTO);
-        PersonaOutputDTO personaOutputDTO = new PersonaOutputDTO();
-        BeanUtils.copyProperties(personaInputDTO, personaOutputDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(personaOutputDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.añadirPersona(personaInputDTO));
     }
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("persona/{id}")
-    public ResponseEntity<Object> getPersona(
+    public ResponseEntity<Object> verPersonaId(
             @PathVariable int id,
             @RequestParam(defaultValue = "simple") String outputType) {
         log.info("Intentando buscar persona con id: " + id + ", output: " + outputType);
-        return ResponseEntity.ok().body(service.getPersona(id, outputType));
+        return ResponseEntity.ok().body(service.mostrarPersonaId(id, outputType));
     }
 
     @GetMapping("personas")
-    public List<PersonaOutputDTO> getPersonas() {
+    public List<PersonaOutputDTO> verPersonas() {
         log.info("Mostrando todas las personas");
-        return service.getPersonas();
+        return service.mostrarPersonas();
     }
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("persona")
-    public ResponseEntity<PersonaOutputDTO> getPersona(@RequestParam String username) {
+    public ResponseEntity<PersonaOutputDTO> verPersonaId(@RequestParam String username) {
         log.info("Intentando buscar persona con nombre: " + username);
-        return ResponseEntity.ok().body(service.getPersonaByUser(username));
+        return ResponseEntity.ok().body(service.mostrarPersona(username));
     }
 
     @ResponseStatus(HttpStatus.OK)
     @PutMapping("persona/{id}")
-    public ResponseEntity<Void> actPersona(@PathVariable int id, @RequestBody PersonaInputDTO personaInputDTO) {
+    public ResponseEntity<Void> modificarPersona(@PathVariable int id, @RequestBody PersonaInputDTO personaInputDTO) {
         log.info("Intentando actualizar: " + personaInputDTO);
-        service.actPersona(id, personaInputDTO);
+        service.modificarPersona(id, personaInputDTO);
         return ResponseEntity.ok().build();
     }
 
     @ResponseStatus(HttpStatus.OK)
     @DeleteMapping("persona/{id}")
-    public ResponseEntity<Void> delPersona(@PathVariable int id) {
+    public ResponseEntity<Void> borrarPersona(@PathVariable int id) {
         log.info("Intentando borrar persona con id: " + id);
-        service.delPersona(id);
+        service.borrarPersona(id);
         return ResponseEntity.ok().build();
 
     }
