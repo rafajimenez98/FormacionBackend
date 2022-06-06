@@ -30,6 +30,7 @@ public class PersonaServiceImpl implements PersonaService {
         if (repository.findByUsuario(personaInputDTO.getUsuario()).isPresent())
             throw new PersonaYaRegistrada("Usuario ya registrado") ;
         return mapper.toDTO(repository.save(mapper.toEntity(personaInputDTO)));
+
     }
 
     @Override

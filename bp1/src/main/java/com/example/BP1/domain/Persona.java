@@ -42,6 +42,9 @@ public class Persona {
     private String city;
 
     @NotNull
+    private Boolean active;
+
+    @NotNull
     private Date created_date;
 
     private String imagen_url;
