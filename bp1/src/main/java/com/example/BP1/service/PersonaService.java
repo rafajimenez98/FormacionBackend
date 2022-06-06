@@ -10,8 +10,8 @@ public interface PersonaService {
     PersonaOutputDTO crearPersona(PersonaInputDTO personaInputDTO);
 
     List<PersonaOutputDTO> mostrarPersonas();
-    Object mostrarPersonaId(Integer id, String outputType);
 
+    Object mostrarPersonaId(Integer id, String outputType);
 
     PersonaOutputDTO mostrarPersona(String username);
 
