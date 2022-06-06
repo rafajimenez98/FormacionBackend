@@ -22,7 +22,7 @@ public class Controller {
     @PostMapping("persona")
     public ResponseEntity<PersonaOutputDTO> crearPersona(@RequestBody PersonaInputDTO personaInputDTO) {
         log.info("Intentando agregar: " + personaInputDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.añadirPersona(personaInputDTO));
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.crearPersona(personaInputDTO));
     }
 
     @ResponseStatus(HttpStatus.OK)

@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface PersonaService {
 
-    PersonaOutputDTO añadirPersona(PersonaInputDTO personaInputDTO);
+    PersonaOutputDTO crearPersona(PersonaInputDTO personaInputDTO);
 
     List<PersonaOutputDTO> mostrarPersonas();
     Object mostrarPersonaId(Integer id, String outputType);

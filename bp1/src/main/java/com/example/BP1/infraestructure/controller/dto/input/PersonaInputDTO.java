@@ -1,6 +1,5 @@
 package com.example.BP1.infraestructure.controller.dto.input;
 
-import com.example.BP1.domain.Persona;
 import lombok.Data;
 
 import java.util.Date;
