@@ -25,26 +25,24 @@ public class Controller {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.crearPersona(personaInputDTO));
     }
 
+    @GetMapping("personas")
+    public List<PersonaOutputDTO> mostrarPersonas() {
+    log.info("Mostrando todas las personas");
+    return service.mostrarPersonas();
+}
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("persona/{id}")
-    public ResponseEntity<Object> verPersonaId(
-            @PathVariable int id,
-            @RequestParam(defaultValue = "simple") String outputType) {
-        log.info("Intentando buscar persona con id: " + id + ", output: " + outputType);
-        return ResponseEntity.ok().body(service.mostrarPersonaId(id, outputType));
+    public ResponseEntity<PersonaOutputDTO> mostrarPersonaId(@PathVariable int id) {
+        log.info("Intentando buscar persona con nombre: " + id);
+        return ResponseEntity.ok().body(service.mostrarPersonaId(id));
     }
 
-    @GetMapping("personas")
-    public List<PersonaOutputDTO> verPersonas() {
-        log.info("Mostrando todas las personas");
-        return service.mostrarPersonas();
-    }
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("persona")
-    public ResponseEntity<PersonaOutputDTO> verPersonaId(@RequestParam String username) {
-        log.info("Intentando buscar persona con nombre: " + username);
-        return ResponseEntity.ok().body(service.mostrarPersona(username));
+    public ResponseEntity<PersonaOutputDTO> mostrarPersona(@RequestParam String usuario) {
+        log.info("Intentando buscar persona con nombre: " + usuario);
+        return ResponseEntity.ok().body(service.mostrarPersona(usuario));
     }
 
     @ResponseStatus(HttpStatus.OK)

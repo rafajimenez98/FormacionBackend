@@ -11,7 +11,7 @@ public interface PersonaService {
 
     List<PersonaOutputDTO> mostrarPersonas();
 
-    Object mostrarPersonaId(Integer id, String outputType);
+    PersonaOutputDTO mostrarPersonaId(Integer id);
 
     PersonaOutputDTO mostrarPersona(String username);
 

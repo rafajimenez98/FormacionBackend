@@ -34,21 +34,19 @@ public class PersonaServiceImpl implements PersonaService {
     }
 
     @Override
-    public Object mostrarPersonaId(Integer id, String outputType) {
-        Persona persona = repository
+    public PersonaOutputDTO mostrarPersonaId(Integer id) {
+        return mapper.toDTO((Persona) repository
                 .findById(id)
                 .orElseThrow(() -> new PersonaNoEncontrada(
-                        ("Persona con id: " + id + ", no encontrado")));
-
-        return null;
+                        ("Persona con id: " + id + ", no encontrado"))));
     }
 
     @Override
-    public PersonaOutputDTO mostrarPersona(String username) {
+    public PersonaOutputDTO mostrarPersona(String usuario) {
         return mapper.toDTO((Persona) repository
-                .findByUsuario(username)
+                .findByUsuario(usuario)
                 .orElseThrow(() -> new PersonaNoEncontrada(
-                        ("Usuario: " + username + ", no encontrado"))));
+                        ("Usuario: " + usuario + ", no encontrado"))));
     }
 
     @Override
