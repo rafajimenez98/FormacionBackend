@@ -1,4 +1,4 @@
-package com.example.BP1.utils;
+package com.example.ej31.utils;
 
 import org.hibernate.HibernateException;
 import org.hibernate.MappingException;
