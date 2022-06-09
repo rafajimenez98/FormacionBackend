@@ -1,8 +1,9 @@
 package com.example.ej31.estudiante.domain;
-/*
-import com.example.ej31.estudiante_asignatura.domain.Estudiante_Asignatura;
+
+//import com.example.ej31.profesor.domain.Profesor;
+//import com.example.ej31.estudiante_asignatura.domain.Estudiante_Asignatura;
+
 import com.example.ej31.persona.domain.Persona;
-import com.example.ej31.profesor.domain.Profesor;
 import com.example.ej31.utils.StringPrefixedSequenceIdGenerator;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,14 +27,17 @@ public class Estudiante {
                 @org.hibernate.annotations.Parameter(
                         name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "1"),
                 @org.hibernate.annotations.Parameter(
-                        name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "ASI"),
+                        name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = ""),
                 @org.hibernate.annotations.Parameter(
-                        name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%08d")
+                        name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%d")
             })
 
-    @OneToOne
+    @Column(name = "id_estudiante")
+    String id_estudiante;
+
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_persona")
-    Persona persona;
+    Persona id_persona;
 
     @NotNull
     @Column(name = "horas_por_semana")
@@ -42,15 +46,15 @@ public class Estudiante {
     @Column(name = "comentarios")
     String coments;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_profesor")
-    Profesor profesor;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "id_profesor")
+//    Profesor profesor;
 
     @NotNull
-    @Column(name = "rama")
+    @Column(name = "branch", columnDefinition = "VARCHAR(10) CHECK (branch IN ('FRONT', 'BACK', 'FULLSTACK'))")
     String branch;
-//
+
+
 //    @OneToMany
-//    List<Estudiante_Asignatura> asignatura;
+//    private List<Estudiante_Asignatura> estudiante_asignatura;
 }
-*/
