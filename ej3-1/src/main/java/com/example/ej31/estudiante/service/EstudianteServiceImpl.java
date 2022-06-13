@@ -1,11 +1,10 @@
 package com.example.ej31.estudiante.service;
 
+import com.example.ej31.estudiante.domain.Estudiante;
 import com.example.ej31.estudiante.infraestructure.controller.dto.input.EstudianteInputDTO;
-import com.example.ej31.persona.domain.Persona;
-import com.example.ej31.persona.infraestructure.controller.dto.input.PersonaInputDTO;
-import com.example.ej31.persona.infraestructure.controller.dto.output.PersonaOutputDTO;
-import com.example.ej31.persona.infraestructure.controller.mapper.PersonaMapper;
-import com.example.ej31.persona.infraestructure.repository.PersonaRepositoryJPA;
+import com.example.ej31.estudiante.infraestructure.controller.dto.output.EstudianteOutputDTO;
+import com.example.ej31.estudiante.infraestructure.controller.mapper.EstudianteMapper;
+import com.example.ej31.estudiante.infraestructure.repository.EstudianteRepositoryJPA;
 import com.example.ej31.utils.exceptions.PersonaNoEncontrada;
 import com.example.ej31.utils.exceptions.PersonaYaRegistrada;
 import lombok.extern.slf4j.Slf4j;
@@ -20,58 +19,44 @@ import java.util.List;
 @Service
 public class EstudianteServiceImpl {
     @Autowired
-    private PersonaRepositoryJPA repository;
+    private EstudianteRepositoryJPA repository;
 
     @Autowired
-    private PersonaMapper mapper;
+    private EstudianteMapper mapper;
 
-    @Override
-    public PersonaOutputDTO crearEstudiante(EstudianteInputDTO estudianteInputDTO) throws ConstraintViolationException {
-        if (repository.findByUsuario(estudianteInputDTO.getUsuario()).isPresent())
+
+    public EstudianteOutputDTO crearEstudiante(EstudianteInputDTO estudianteInputDTO) throws ConstraintViolationException {
+        if (repository.findByIdEstudiante(estudianteInputDTO.getId_estudiante()).isPresent())
             throw new PersonaYaRegistrada("Usuario ya registrado") ;
         return mapper.toDTO(repository.save(mapper.toEntity(estudianteInputDTO)));
 
     }
 
-    @Override
-    public PersonaOutputDTO mostrarPersonaId(String id_Persona) {
-        return mapper.toDTO((Persona) repository
-                .findByIdPersona(id_Persona)
+    public EstudianteOutputDTO mostrarEstudianteId(String id_estudiante) {
+        return mapper.toDTO((Estudiante) repository
+                .findByIdEstudiante(id_estudiante)
                 .orElseThrow(() -> new PersonaNoEncontrada(
-                        ("Persona con id: " + id_Persona + ", no encontrado"))));
+                        ("Persona con id: " + id_estudiante + ", no encontrado"))));
     }
 
-    @Override
-    public PersonaOutputDTO mostrarPersona(String usuario) {
-        return mapper.toDTO((Persona) repository
-                .findByUsuario(usuario)
-                .orElseThrow(() -> new PersonaNoEncontrada(
-                        ("Usuario: " + usuario + ", no encontrado"))));
-    }
-
-    @Override
-    public List<PersonaOutputDTO> mostrarPersonas() {
+    public List<EstudianteOutputDTO> mostrarEstudiantes() {
         return mapper.toDTOList(repository.findAll());
     }
 
-    @Override
-    public void modificarPersona(String id_Persona, PersonaInputDTO personaInputDTO) throws ConstraintViolationException {
-        Persona persona =
-                repository.findByIdPersona(id_Persona)
+     public void modificarEstudiante(String id_estudiante, EstudianteInputDTO estudianteInputDTO) throws ConstraintViolationException {
+        Estudiante estudiante =
+                repository.findByIdEstudiante(id_estudiante)
                         .orElseThrow(() ->
-                                new PersonaNoEncontrada("Persona con id: " + id_Persona + ", no encontrada"));
+                                new PersonaNoEncontrada("Persona con id: " + id_estudiante + ", no encontrada"));
 
-        BeanUtils.copyProperties(personaInputDTO, persona);
-        repository.save(persona);
+        BeanUtils.copyProperties(estudianteInputDTO, estudiante);
+        repository.save(estudiante);
     }
 
-    @Override
-    public void borrarPersona(String id_Persona) {
+    public void borrarEstudiante(String id_estudiante) {
         repository.delete((repository
-                .findByIdPersona(id_Persona)
+                .findByIdEstudiante(id_estudiante)
                 .orElseThrow(() -> new PersonaNoEncontrada(
-                        ("Persona con id: " + id_Persona + ", no encontrado")))));
+                        ("Persona con id: " + id_estudiante + ", no encontrado")))));
     }
-}
-
 }
